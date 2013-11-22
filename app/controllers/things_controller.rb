@@ -1,5 +1,5 @@
 class ThingsController < ApplicationController
-  before_action :set_thing, only: [:show, :edit, :update, :destroy]
+  before_action :set_thing, only: [:show, :show2, :edit, :update, :destroy]
 
   # GET /things
   # GET /things.json
@@ -10,6 +10,11 @@ class ThingsController < ApplicationController
   # GET /things/1
   # GET /things/1.json
   def show
+    render json: { data: ThingsPresenter.new.as_json(@thing, true) }
+  end
+
+  def show2
+    render json: { data: ThingsPresenter.new.as_json2(@thing, true) }
   end
 
   # GET /things/new

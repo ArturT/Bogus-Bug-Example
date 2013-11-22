@@ -1,5 +1,9 @@
 BogusBug::Application.routes.draw do
-  resources :things
+  resources :things do
+    member do
+      get :show2
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
